@@ -25,3 +25,15 @@ If you want to import these project into the local eclipse setup -
   * Run project
   * Open browser
      * http://localhost:8080/h2-ui
+       
+## SWAGGER API
+
+### localhost:8080/swagger-ui/index.html 
+
+​/api/listProducts
+
+    {
+       "brand_id": 1,
+       "product_id": 35455,
+       "start_date": "2020-06-15 00:00:00"
+    }
