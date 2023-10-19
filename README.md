@@ -7,7 +7,7 @@ If you want to import these project into the local eclipse setup -
   3. Open the project into intellij
 
 ## Test API in Postman
-
+https://feddex.azurewebsites.net/api
 ### GET  
     curl --location 'localhost:8080/api'
 ### POST 
