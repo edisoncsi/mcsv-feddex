@@ -32,25 +32,11 @@ public class FindData {
     public Date getStartDate() {
         return startDate;
     }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
     public Long getProductId() {
         return productId;
     }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
     public Long getBrandId() {
         return brandId;
-    }
-
-    public void setBrandId(Long brandId) {
-        this.brandId = brandId;
     }
 
 }

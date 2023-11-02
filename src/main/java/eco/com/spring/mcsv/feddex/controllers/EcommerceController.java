@@ -34,7 +34,7 @@ public class EcommerceController {
         }
         List<EcommerceResponse> newList = new ArrayList<>();
         List<Price> optional = ecommerceService.listarProduct(findData);
-        if (optional.size() == 0) {
+        if (optional.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         optional.stream()
@@ -50,9 +50,7 @@ public class EcommerceController {
 
     private static ResponseEntity<Map<String, String>> validar(BindingResult result) {
         Map<String, String> errores = new HashMap<>();
-        result.getFieldErrors().forEach(err -> {
-            errores.put(err.getField(), "El campo " + err.getField() + " " + err.getDefaultMessage());
-        });
+        result.getFieldErrors().forEach(err -> errores.put(err.getField(), "El campo " + err.getField() + " " + err.getDefaultMessage()));
         return ResponseEntity.badRequest().body(errores);
     }
 }

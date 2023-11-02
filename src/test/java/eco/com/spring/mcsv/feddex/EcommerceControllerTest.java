@@ -1,6 +1,5 @@
 package eco.com.spring.mcsv.feddex;
 
-import eco.com.spring.mcsv.feddex.dtos.FindData;
 import eco.com.spring.mcsv.feddex.repositories.EcommerceRepository;
 
 import org.junit.jupiter.api.DisplayNameGeneration;
@@ -16,7 +15,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.io.File;
 import java.nio.file.Files;
-import java.util.Date;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -40,7 +38,7 @@ public class EcommerceControllerTest
 
     @Test
     public void getAllTest(){
-        assertThat(this.repository.findAll()).hasSize(4);
+        assertThat(repository.findAll()).hasSize(4);
     }
 
 
