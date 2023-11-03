@@ -27,7 +27,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 @SpringBootTest
 @AutoConfigureMockMvc
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
-public class EcommerceControllerTest
+class EcommerceControllerTest
 {
     @Autowired
     private EcommerceRepository repository;
@@ -37,14 +37,14 @@ public class EcommerceControllerTest
 
 
     @Test
-    public void getAllTest(){
+    void getAllTest(){
         assertThat(repository.findAll()).hasSize(4);
     }
 
 
     // Test 1: petición a las 10:00 del día 14 del producto 35455 para la brand 1 (ZARA)
     @Test
-    public void testGetProduct1()throws Exception {
+    void testGetProduct1()throws Exception {
 
         final File jsonFile = new ClassPathResource("init/test1.json").getFile();
         final String userToCreate = Files.readString(jsonFile.toPath());
@@ -62,7 +62,7 @@ public class EcommerceControllerTest
 
     // Test 2: petición a las 16:00 del día 14 del producto 35455 para la brand 1 (ZARA)
     @Test
-    public void testGetProduct2()throws Exception {
+    void testGetProduct2()throws Exception {
 
         final File jsonFile = new ClassPathResource("init/test2.json").getFile();
         final String userToCreate = Files.readString(jsonFile.toPath());
@@ -81,7 +81,7 @@ public class EcommerceControllerTest
 
     // Test 3: petición a las 21:00 del día 14 del producto 35455 para la brand 1 (ZARA)
     @Test
-    public void testGetProduct3()throws Exception {
+    void testGetProduct3()throws Exception {
 
         final File jsonFile = new ClassPathResource("init/test3.json").getFile();
         final String userToCreate = Files.readString(jsonFile.toPath());
@@ -100,7 +100,7 @@ public class EcommerceControllerTest
 
     // Test 4: petición a las 10:00 del día 15 del producto 35455 para la brand 1 (ZARA)
     @Test
-    public void testGetProduct4()throws Exception {
+    void testGetProduct4()throws Exception {
         final File jsonFile = new ClassPathResource("init/test4.json").getFile();
         final String userToCreate = Files.readString(jsonFile.toPath());
 
@@ -118,7 +118,7 @@ public class EcommerceControllerTest
 
     // Test 5: petición a las 21:00 del día 16 del producto 35455 para la brand 1 (ZARA)
     @Test
-    public void testGetProduct5()throws Exception {
+    void testGetProduct5()throws Exception {
 
         final File jsonFile = new ClassPathResource("init/test5.json").getFile();
         final String userToCreate = Files.readString(jsonFile.toPath());

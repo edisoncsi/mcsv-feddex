@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -32,19 +31,20 @@ public class EcommerceController {
         if (result.hasErrors()) {
             return validar(result);
         }
-        List<EcommerceResponse> newList = new ArrayList<>();
-        List<Price> optional = ecommerceService.listarProduct(findData);
-        if (optional.isEmpty()) {
+
+        List<Price> listPrice = ecommerceService.listarProduct(findData);
+        if (listPrice.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        optional.stream()
-                .map(lista -> newList.add(
-                        new EcommerceResponse(lista.getProductId(),
-                                lista.getBrandId().getId(),
-                                lista.getStartDate(),
-                                lista.getPriceList(),
-                                lista.getPrice())))
-                .collect(Collectors.toList());
+        List<EcommerceResponse> newList = listPrice.stream()
+                .map(lista -> new EcommerceResponse(
+                        lista.getProductId(),
+                        lista.getBrandId().getId(),
+                        lista.getStartDate(),
+                        lista.getPriceList(),
+                        lista.getPrice()
+                ))
+                .toList(); //collect(Collectors.toList());
         return ResponseEntity.ok(newList);
     }
 
