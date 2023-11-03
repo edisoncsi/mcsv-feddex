@@ -1,7 +1,10 @@
 package eco.com.spring.mcsv.feddex.models.entity;
 
-import javax.persistence.*;
-import java.io.Serial;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.io.Serializable;
 
 @Entity

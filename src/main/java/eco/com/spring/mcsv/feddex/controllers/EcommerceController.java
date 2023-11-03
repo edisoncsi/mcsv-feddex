@@ -44,7 +44,7 @@ public class EcommerceController {
                         lista.getPriceList(),
                         lista.getPrice()
                 ))
-                .toList(); //collect(Collectors.toList());
+                .toList();
         return ResponseEntity.ok(newList);
     }
 
