@@ -24,12 +24,20 @@ public class Price implements Serializable{
     @Temporal(TemporalType.TIMESTAMP)
     private Date startDate;
 
+    @Column(name = "end_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date endDate;
+
     @Column(name = "price_list")
     private Long priceList;
     @Column(name = "product_id")
     private Long productId;
 
-    private Double prices;
+    private Long priority;
+
+    private Double price;
+
+    private String curr;
 
     public Date getStartDate() {
         return startDate;
@@ -44,10 +52,11 @@ public class Price implements Serializable{
     }
 
     public Double getPrice() {
-        return prices;
+        return price;
     }
 
     public Brand getBrandId() {
         return brandId;
     }
+
 }
