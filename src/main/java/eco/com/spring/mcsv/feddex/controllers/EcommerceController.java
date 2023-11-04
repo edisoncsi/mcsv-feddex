@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -44,7 +45,7 @@ public class EcommerceController {
                         lista.getPriceList(),
                         lista.getPrice()
                 ))
-                .toList();
+                .collect(Collectors.toList());
         return ResponseEntity.ok(newList);
     }
 

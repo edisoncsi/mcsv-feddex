@@ -15,6 +15,24 @@
 	<description>Demo project for Spring Boot Feddex</description>
 	<properties>
 		<java.version>17</java.version>
+		<sonar.coverage.exclusions>
+			**/McsvFeddexApplication.java,
+			**/models/entity/*,
+			**/configurations/*,
+			**/response/*,
+			**/dtos/*
+		</sonar.coverage.exclusions>
+		<sonar.exclusions>
+			**/McsvFeddexApplication.java,
+			**/models/entity/*,
+			**/configurations/*,
+			**/response/*,
+			**/dtos/*
+		</sonar.exclusions>
+		<sonar.coverage.jacoco.xmlReportPaths>
+			target/site/jacoco/jacoco.xml
+		</sonar.coverage.jacoco.xmlReportPaths>
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -59,7 +77,45 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>coverage</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<version>0.8.7</version>
+						<executions>
+							<execution>
+								<id>prepare-agent</id>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>report</id>
+								<goals>
+									<goal>report</goal>
+								</goals>
+								<configuration>
+									<formats>
+										<format>XML</format>
+									</formats>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
