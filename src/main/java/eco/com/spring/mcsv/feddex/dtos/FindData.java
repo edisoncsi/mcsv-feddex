@@ -14,7 +14,6 @@ public class FindData {
     @JsonProperty("start_date")
     @NotNull
     private Date startDate;
-
     @NotNull
     @JsonProperty("product_id")
     private Long productId;

@@ -9,5 +9,4 @@ public class McsvFeddexApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(McsvFeddexApplication.class, args);
 	}
-
 }
