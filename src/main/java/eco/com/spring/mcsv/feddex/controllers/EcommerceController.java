@@ -30,7 +30,7 @@ public class EcommerceController {
     public ResponseEntity<?> listProducts(@Valid @RequestBody FindData findData, BindingResult result) {
 
         if (result.hasErrors()) {
-            return validar(result);
+            return validator(result);
         }
 
         List<Price> listPrice = ecommerceService.listarProduct(findData);
@@ -38,20 +38,20 @@ public class EcommerceController {
             return ResponseEntity.notFound().build();
         }
         List<EcommerceResponse> newList = listPrice.stream()
-                .map(lista -> new EcommerceResponse(
-                        lista.getProductId(),
-                        lista.getBrandId().getId(),
-                        lista.getStartDate(),
-                        lista.getPriceList(),
-                        lista.getPrice()
+                .map(list -> new EcommerceResponse(
+                        list.getProductId(),
+                        list.getBrandId().getId(),
+                        list.getStartDate(),
+                        list.getPriceList(),
+                        list.getPrice()
                 ))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(newList);
     }
 
-    private static ResponseEntity<Map<String, String>> validar(BindingResult result) {
-        Map<String, String> errores = new HashMap<>();
-        result.getFieldErrors().forEach(err -> errores.put(err.getField(), "El campo " + err.getField() + " " + err.getDefaultMessage()));
-        return ResponseEntity.badRequest().body(errores);
+    private static ResponseEntity<Map<String, String>> validator(BindingResult result) {
+        Map<String, String> errors = new HashMap<>();
+        result.getFieldErrors().forEach(err -> errors.put(err.getField(), "El campo " + err.getField() + " " + err.getDefaultMessage()));
+        return ResponseEntity.badRequest().body(errors);
     }
 }
