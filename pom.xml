@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>eco.com.spring.mcsv.feddex</groupId>
 	<artifactId>mcsv-feddex</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>mcsv-feddex</name>
 	<description>Demo project for Spring Boot Feddex</description>
 	<properties>
