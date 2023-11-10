@@ -49,7 +49,7 @@ public class EcommerceController {
         return ResponseEntity.ok(newList);
     }
 
-    private static ResponseEntity<Map<String, String>> validator(BindingResult result) {
+    public ResponseEntity<Map<String, String>> validator(BindingResult result) {
         Map<String, String> errors = new HashMap<>();
         result.getFieldErrors().forEach(err -> errors.put(err.getField(), "El campo " + err.getField() + " " + err.getDefaultMessage()));
         return ResponseEntity.badRequest().body(errors);

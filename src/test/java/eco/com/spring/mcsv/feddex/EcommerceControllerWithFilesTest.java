@@ -27,7 +27,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 @SpringBootTest
 @AutoConfigureMockMvc
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
-class EcommerceControllerTest
+class EcommerceControllerWithFilesTest
 {
     @Autowired
     private EcommerceRepository repository;
