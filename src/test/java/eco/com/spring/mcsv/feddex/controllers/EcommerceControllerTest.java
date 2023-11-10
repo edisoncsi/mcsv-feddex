@@ -67,7 +67,7 @@ class EcommerceControllerTest {
 
 
     @Test
-    public void testListarTest() {
+    void testListarTest() {
         // Create sample data for the test
         List<Price> mockPrices = Arrays.asList(
                 createMockPrice(1L, new Brand(), new Date(), new Date(), 1L, 1L, 1L, 9.99, "USD"),
@@ -105,12 +105,12 @@ class EcommerceControllerTest {
 
         // Assert that the response is OK and contains the expected list of EcommerceResponse objects
         assertEquals(200, response.getStatusCodeValue());
-        assertEquals(mockPriceList.size(), ((List<?>) response.getBody()).size()); // Assuming conversion to EcommerceResponse
+        assertEquals(mockPriceList.size(), ((List<?>) Objects.requireNonNull(response.getBody())).size()); // Assuming conversion to EcommerceResponse
     }
 
 
     @Test
-    public void testValidator() {
+    void testValidator() {
         // Mocking BindingResult
         BindingResult bindingResult = mock(BindingResult.class);
 
@@ -123,12 +123,12 @@ class EcommerceControllerTest {
 
         // Validate the response
         assertEquals(400, responseEntity.getStatusCodeValue()); // 400 is the status code for bad request
-        assertEquals("El campo fieldName error message", responseEntity.getBody().get("fieldName"));
+        assertEquals("El campo fieldName error message", Objects.requireNonNull(responseEntity.getBody()).get("fieldName"));
     }
 
 
     @Test
-    public void testListProductsWithErrors() {
+    void testListProductsWithErrors() {
         // Mocking BindingResult
         BindingResult bindingResult = mock(BindingResult.class);
         when(bindingResult.hasErrors()).thenReturn(true);
